@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtual Lab Indikator Asam Basa v5</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#eef5fb;margin:0;padding:20px;color:#222}
+.wrap{max-width:1100px;margin:auto}
+.card{background:#fff;border-radius:16px;padding:16px;margin-bottom:16px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+h2{margin:0 0 8px;color:#174ea6}
+.lab{position:relative;height:460px;background:#f8fbff;border:2px dashed #bcd;border-radius:12px;overflow:hidden}
+.bottle,.tool{position:absolute;display:flex;align-items:center;justify-content:center;cursor:grab;user-select:none;touch-action:none}
+.bottle{width:72px;height:90px;background:#fff;border:2px solid #8aa7d3;border-radius:14px;flex-direction:column;font-weight:bold}
+.bottle .emoji{font-size:28px}.bottle .lbl{font-size:10px;margin-top:2px}
+.tool{width:120px;height:28px;border-radius:6px;color:#fff;font-size:12px;font-weight:bold}
+#blue{background:#2563eb}#red{background:#dc2626}#pp{background:#ec4899}#mo{background:#f59e0b}#uni{background:linear-gradient(90deg,#d32f2f,#f57c00,#fbc02d,#43a047,#1976d2,#6a1b9a)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#e5e7eb;padding:8px;border:1px solid #d1d5db}
+td{padding:8px;border:1px solid #d1d5db;text-align:center}
+.left{text-align:left}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.dot{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dred{background:#d84a5a}.dblue{background:#4a73d8}
+.u-red{background:#d32f2f;color:#fff}.u-orange{background:#e67e22;color:#fff}.u-yellow{background:#f4d03f}.u-green{background:#43a047;color:#fff}.u-blue{background:#1976d2;color:#fff}.u-purple{background:#6a1b9a;color:#fff}
+.status{background:#edf4ff;padding:10px;border-radius:8px;font-weight:bold}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+<h2>🧪 Virtual Lab Indikator Asam–Basa</h2>
+<p>Geser botol larutan ke gelas beker, lalu geser indikator. pH tidak ditampilkan.</p>
+<div class="lab" id="lab">
+<div id="beaker" style="position:absolute;left:430px;top:120px;width:180px;height:220px">
+<svg viewBox="0 0 180 220" width="180" height="220">
+<defs><clipPath id="c"><path d="M30 10 H150 V145 Q150 190 90 190 Q30 190 30 145 Z"/></clipPath></defs>
+<path d="M30 10 H150 V145 Q150 190 90 190 Q30 190 30 145 Z" fill="#fff" stroke="#607d8b" stroke-width="3"/>
+<g clip-path="url(#c)"><rect id="liq" x="20" y="90" width="140" height="110" fill="#fff"/></g>
+</svg></div>
+<div id="blue" class="tool" style="left:20px;top:250px">Lakmus Biru</div>
+<div id="red" class="tool" style="left:20px;top:290px">Lakmus Merah</div>
+<div id="pp" class="tool" style="left:20px;top:330px">PP</div>
+<div id="mo" class="tool" style="left:20px;top:370px">Metil Oranye</div>
+<div id="uni" class="tool" style="left:20px;top:410px">Universal</div>
+</div>
+<div id="status" class="status">Belum ada larutan di gelas beker.</div>
+</div>
+
+<div class="card">
+<h3>📋 Lembar Observasi</h3>
+<table><thead><tr><th>Larutan</th><th>Indikator</th><th>Warna</th><th>Perkiraan pH</th></tr></thead>
+<tbody id="obs"><tr><td colspan="4">Belum ada percobaan</td></tr></tbody></table>
+</div>
+
+<div class="card">
+<h3>📖 Tabel Referensi Indikator</h3>
+<h4 style="margin:8px 0">Lakmus</h4>
+<table>
+<tr><th>Indikator</th><th>Asam</th><th>Netral</th><th>Basa</th></tr>
+<tr><td class="left">Lakmus Biru</td><td class="left"><span class="dot dred"></span>Menjadi merah</td><td class="left"><span class="dot dblue"></span>Tetap biru</td><td class="left"><span class="dot dblue"></span>Tetap biru</td></tr>
+<tr><td class="left">Lakmus Merah</td><td class="left"><span class="dot dred"></span>Tetap merah</td><td class="left"><span class="dot dred"></span>Tetap merah</td><td class="left"><span class="dot dblue"></span>Menjadi biru</td></tr>
+</table>
+
+<div class="grid3" style="margin-top:14px">
+<div>
+<table>
+<caption style="caption-side:top;text-align:left;font-weight:bold;padding-bottom:6px">Fenolftalein</caption>
+<tr><th>Warna</th><th>pH</th></tr>
+<tr><td>Tidak berwarna</td><td>0–8,2</td></tr>
+<tr><td>Merah muda</td><td>8,2–14</td></tr>
+</table>
+</div>
+<div>
+<table>
+<caption style="caption-side:top;text-align:left;font-weight:bold;padding-bottom:6px">Metil Oranye</caption>
+<tr><th>Warna</th><th>pH</th></tr>
+<tr><td>Merah</td><td>1,0–3,1</td></tr>
+<tr><td>Oranye</td><td>3,1–4,4</td></tr>
+<tr><td>Kuning</td><td>4,4–14</td></tr>
+</table>
+</div>
+<div>
+<table>
+<caption style="caption-side:top;text-align:left;font-weight:bold;padding-bottom:6px">Universal</caption>
+<tr><th>Warna</th><th>pH</th></tr>
+<tr><td class="u-red">Merah</td><td>0–2</td></tr>
+<tr><td class="u-orange">Jingga</td><td>3–4</td></tr>
+<tr><td class="u-yellow">Kuning</td><td>5–6</td></tr>
+<tr><td class="u-green">Hijau</td><td>7</td></tr>
+<tr><td class="u-blue">Biru</td><td>8–10</td></tr>
+<tr><td class="u-purple">Ungu</td><td>11–14</td></tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+const lab=document.getElementById('lab'),liq=document.getElementById('liq'),beaker=document.getElementById('beaker');
+const obs=document.getElementById('obs'),status=document.getElementById('status');
+const sols=[["HCl","acid"],["HF","acid"],["CH₃COOH","acid"],["Air","neutral"],["NaCl","neutral"],["NaOH","base"],["Mg(OH)₂","base"],["NH₄OH","base"]];
+let current=null;
+sols.forEach((s,i)=>{const b=document.createElement('div');b.className='bottle';b.style.left=(10+i*82)+'px';b.style.top='10px';b.innerHTML=`<div class="emoji">🧴</div><div class="lbl">${s[0]}</div>`;lab.appendChild(b);drag(b,()=>{if(hit(b,beaker)){current={n:s[0],t:s[1]};liq.setAttribute('fill',s[1]=='acid'?'#fde2e2':s[1]=='base'?'#dbeafe':'#eef7ee');status.textContent=`Larutan ${s[0]} dimasukkan ke gelas beker.`;}b.style.left=(10+i*82)+'px';b.style.top='10px';});});
+[['blue','Lakmus Biru'],['red','Lakmus Merah'],['pp','PP'],['mo','Metil Oranye'],['uni','Universal']].forEach(([id,name])=>{const el=document.getElementById(id);const hx=parseInt(el.style.left),hy=parseInt(el.style.top),bg=el.style.background;drag(el,()=>{if(current&&hit(el,beaker)){let warna='';if(name=='Lakmus Biru'){warna=current.t=='acid'?'Merah':'Biru';el.style.background=current.t=='acid'?'#dc2626':'#2563eb';el.textContent=warna;}if(name=='Lakmus Merah'){warna=current.t=='base'?'Biru':'Merah';el.style.background=current.t=='base'?'#2563eb':'#dc2626';el.textContent=warna;}if(name=='PP'){warna=current.t=='base'?'Merah muda':'Tidak berwarna';el.style.background=current.t=='base'?'#ec4899':'#fff';el.style.color=current.t=='base'?'#fff':'#333';el.textContent=warna;}if(name=='Metil Oranye'){warna=current.t=='acid'?'Merah':'Kuning';el.style.background=current.t=='acid'?'#ef4444':'#f59e0b';el.textContent=warna;}if(name=='Universal'){warna=current.t=='acid'?'Merah':current.t=='neutral'?'Hijau':'Ungu';el.style.background=current.t=='acid'?'#d32f2f':current.t=='neutral'?'#43a047':'#6a1b9a';el.textContent=warna;}obs.innerHTML=`<tr><td>${current.n}</td><td>${name}</td><td>${warna}</td><td>........</td></tr>`;}else{el.style.left=hx+'px';el.style.top=hy+'px';el.style.background=bg;el.style.color='#fff';el.textContent=name;}});});
+function hit(a,b){const r1=a.getBoundingClientRect(),r2=b.getBoundingClientRect();return !(r1.right<r2.left||r1.left>r2.right||r1.bottom<r2.top||r1.top>r2.bottom)}
+function drag(el,drop){let sx,sy,ox,oy;const down=e=>{const p=e.touches?e.touches[0]:e;sx=p.clientX;sy=p.clientY;ox=parseFloat(el.style.left)||0;oy=parseFloat(el.style.top)||0;document.addEventListener('mousemove',move);document.addEventListener('mouseup',up);document.addEventListener('touchmove',move,{passive:false});document.addEventListener('touchend',up)};const move=e=>{if(e.cancelable)e.preventDefault();const p=e.touches?e.touches[0]:e;el.style.left=(ox+p.clientX-sx)+'px';el.style.top=(oy+p.clientY-sy)+'px'};const up=()=>{document.removeEventListener('mousemove',move);document.removeEventListener('mouseup',up);document.removeEventListener('touchmove',move);document.removeEventListener('touchend',up);drop()};el.addEventListener('mousedown',down);el.addEventListener('touchstart',down,{passive:true})}
+</script>
+</body></html>
